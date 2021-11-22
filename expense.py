@@ -1,16 +1,27 @@
 from collections import deque, OrderedDict
 
 input = {'budget': 10000, 'saving':3000 } 
-priorites = [ ('rent', 3000),
-              ('food', 2000), 
-              ('hook',3000),
-              ('battery', 4999) ] 
+priorities = [ ('rent', 3000),
+              ('food', 200), 
+              ('hook',300),
+              ('battery', 999) ] 
  
 can_buy = [ ] 
-remaining_budget = input['budget']
+available_budget = input['budget'] - input['saving']
 
-while remaining_budget > saving:
-    if priority[1] < can_spend : 
+status = 0; 
+# 1 if priorities are not met
+
+for priority in priorities:
+    
+    if priority[1] < available_budget:
         can_buy.append(priority)
+        available_budget -= priority[1]
+
+    else:
+        status = 1
+
+
+
     
 
